@@ -30,7 +30,7 @@
   镜像以后,移除了数据库主从镜像,具体原因请参考[移除主从镜像配置](https://github.com/nacos-group/nacos-docker/wiki/%E7%A7%BB%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E4%BB%8E%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE)
 * 从Nacos 1.3.1版本开始,数据库存储已经升级到8.0, 并且它向下兼容
 * 例子演示中使用的数据库是为了方便定制了官方Mysql镜像, 自动初始化的数据库脚本.
-* 如果你使用自定义数据库, 第一次启动Nacos前需要手动初始化 [数据库脚本](https://github.com/alibaba/nacos/blob/master/distribution/conf/mysql-schema.sql)
+* 如果你使用自定义数据库, 第一次启动Nacos前需要手动初始化 [数据库脚本](https://github.com/alibaba/nacos/blob/develop/plugin-default-impl/nacos-default-datasource-plugin/nacos-datasource-plugin-mysql/src/main/resources/META-INF/mysql-schema.sql)
 
 ## 快速开始
 
@@ -67,13 +67,13 @@ docker run --name nacos-standalone-derby-v2.5.1 \
 * 提示: 你需要通过 `example/.env` 中的以下配置来更改 Compose 文件中 [Nacos 镜像版本](https://hub.docker.com/r/nacos/nacos-server/tags)。
 
 ```dotenv
-NACOS_VERSION=v3.1.1
+NACOS_VERSION=v3.2.0
 ```
 
 对于使用 Arm 芯片（如 M1/M2/M3 系列）的 Mac 用户，需要在支持 `arm` arch 的版本后添加 `-slim`。
 
 ```dotenv
-NACOS_VERSION=v3.1.1-slim
+NACOS_VERSION=v3.2.0-slim
 ```
 
 打开命令窗口执行：
