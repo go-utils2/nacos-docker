@@ -1,2 +1,4 @@
 example/mysql
 example/standalone-logs
+example/mysql-init/
+test/__pycache__/

@@ -37,6 +37,11 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: nacos/nacos-server
+          flavor: |
+            latest=false
+          tags: |
+            type=ref,event=tag
+            type=raw,value=latest,enable=${{ !contains(github.ref_name, 'alpha') && !contains(github.ref_name, 'beta') && !contains(github.ref_name, 'rc') }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -82,8 +87,9 @@ jobs:
           images: nacos/nacos-server
           flavor: |
             latest=false
+          # Keep upstream prerelease/hotfix names; append the image suffix literally.
           tags: |
-            type=pep440,pattern=v{{version}}-slim
+            type=ref,event=tag,suffix=-slim
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
